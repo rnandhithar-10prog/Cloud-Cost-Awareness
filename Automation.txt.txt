@@ -1,0 +1,40 @@
+# CLOUD COST AWARENESS AUTOMATION
+
+## Project Name
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+## Automation Objective
+To remind beginners to check their cloud usage, budget, and free-tier expiry dates regularly.
+
+## Workflow
+1. Set a weekly reminder to review cloud resource usage.
+2. Check the cloud provider's billing dashboard.
+3. Review the current free-tier limits and expiry date.
+4. Check whether unused virtual machines or storage resources are still running.
+5. Review budget alerts and estimated spending.
+6. Stop or delete unused resources when safe to do so.
+7. Record the review date and any actions taken.
+
+## Reminder Example
+Reminder title: Weekly Cloud Cost Check
+
+Frequency: Every Sunday
+
+Message: Review cloud usage, billing alerts, free-tier limits, and unused resources.
+
+## Tools
+- Windows Calendar or another reminder application.
+- Cloud provider billing dashboard.
+- Official AWS, Microsoft Azure, or Google Cloud documentation.
+
+## Safety
+- Never share passwords or secret access keys.
+- Billing alerts may notify users but may not automatically stop resources.
+- Verify current prices and free-tier conditions on official websites.
+- Do not delete resources without checking whether important data depends on them.
+
+## Testing
+This is a simulated reminder workflow. The steps should be tested using a calendar reminder and a review checklist. No actual cloud billing automation is claimed.
+
+## Conclusion
+A regular reminder helps beginners monitor usage and reduce the risk of unexpected cloud charges.

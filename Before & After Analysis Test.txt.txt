@@ -1,0 +1,31 @@
+# BEFORE AND AFTER ANALYSIS
+
+## Project Name
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+## Before Using AI
+- Beginners may find cloud computing terms difficult to understand.
+- Comparing AWS, Azure, and Google Cloud services may take more time.
+- Free-tier limits and billing risks may not be clear.
+- Students may not know how to verify cloud pricing.
+
+## After Using AI
+- Cloud concepts can be explained in simple language.
+- Service comparisons can be prepared more quickly.
+- A safety checklist helps users remember important precautions.
+- A quiz helps beginners test their understanding.
+- Official documentation can be used to verify AI-generated information.
+
+## Benefits
+- Saves research time.
+- Improves understanding of cloud concepts.
+- Supports organized documentation.
+- Encourages responsible use of AI tools.
+
+## Limitations
+- AI can provide incorrect or outdated information.
+- Current pricing and free-tier conditions must be checked using official sources.
+- AI-generated content requires human review.
+
+## Conclusion
+AI can support beginners in learning cloud computing more efficiently. However, users must verify important information and monitor cloud usage to avoid unexpected charges.

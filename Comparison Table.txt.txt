@@ -1,0 +1,67 @@
+CLOUD SERVICE COMPARISON
+
+1. COMPUTE SERVICES
+
+AWS
+Service: Amazon EC2
+Purpose: Runs virtual servers.
+
+Microsoft Azure
+Service: Azure Virtual Machines
+Purpose: Runs virtual servers.
+
+Google Cloud
+Service: Compute Engine
+Purpose: Runs virtual machines.
+
+
+2. STORAGE SERVICES
+
+AWS
+Service: Amazon S3
+Purpose: Stores files and objects.
+
+Microsoft Azure
+Service: Azure Blob Storage
+Purpose: Stores files and objects.
+
+Google Cloud
+Service: Cloud Storage
+Purpose: Stores files and objects.
+
+
+3. DATABASE SERVICES
+
+AWS
+Service: Amazon RDS
+Purpose: Managed relational databases.
+
+Microsoft Azure
+Service: Azure SQL Database
+Purpose: Managed SQL databases.
+
+Google Cloud
+Service: Cloud SQL
+Purpose: Managed relational databases.
+
+
+4. COST AWARENESS
+
+- Free-tier limits differ between providers.
+- Usage beyond eligible limits may incur charges.
+- Monitor resource usage and set budget alerts.
+- Verify current prices using official provider websites.
+
+
+5. OFFICIAL SOURCES
+
+AWS: https://aws.amazon.com/free/
+
+Azure: https://azure.microsoft.com/en-us/pricing/free-services/
+
+Google Cloud: https://cloud.google.com/free/
+
+
+CONCLUSION
+
+AWS, Azure, and Google Cloud provide compute, storage, and database services. Beginners should compare pricing, limits, and regional availability before choosing a service.

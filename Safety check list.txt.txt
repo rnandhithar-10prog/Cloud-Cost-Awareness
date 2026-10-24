@@ -1,0 +1,23 @@
+# CLOUD FREE-TIER SAFETY CHECKLIST
+
+## Before Starting
+- [ ] Choose the correct cloud provider and region.
+- [ ] Read the official free-tier usage limits.
+- [ ] Check which services are eligible for free usage.
+- [ ] Read the billing and pricing conditions.
+
+## During Usage
+- [ ] Set up billing alerts and budget notifications.
+- [ ] Monitor resource usage regularly.
+- [ ] Stop unused virtual machines.
+- [ ] Delete unused resources after checking their dependencies.
+- [ ] Avoid sharing passwords, API keys, or secret access keys with AI tools.
+
+## Before Finishing
+- [ ] Check the billing dashboard.
+- [ ] Verify free-tier expiry dates and usage limits.
+- [ ] Confirm that unwanted resources are stopped or deleted.
+- [ ] Verify prices using official AWS, Azure, or Google Cloud documentation.
+
+## Important Note
+Free-tier services may have usage limits and eligibility conditions. Exceeding limits or using ineligible services may result in charges. Billing alerts may not stop resources automatically.

@@ -1,0 +1,32 @@
+# AI OUTPUT VERIFICATION REPORT
+
+## Project Name
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+## Objective
+To check AI-generated cloud information for incorrect, outdated, or unsafe advice.
+
+## Verification Tests
+
+**Test 1: Cloud Service Definitions**
+AI-generated definitions of IaaS, PaaS, and SaaS should be checked against reliable cloud documentation.
+Result: Verify using official provider documentation.
+
+**Test 2: Free-Tier Limits**
+Free-tier eligibility, limits, and expiry conditions may change.
+Result: Check the current official AWS, Microsoft Azure, and Google Cloud pages before use.
+
+**Test 3: Pricing Information**
+AI-generated prices may be outdated or incorrect.
+Result: Never rely on AI alone for current pricing. Verify using official pricing pages.
+
+**Test 4: Security Advice**
+Cloud passwords and secret access keys must not be shared with AI tools or public websites.
+Result: Unsafe sharing advice must be rejected.
+
+**Test 5: Billing Alerts**
+Billing alerts help users monitor spending but may not automatically stop resources.
+Result: Verify the alert's actual behavior in the selected cloud provider.
+
+## Conclusion
+AI is useful for learning cloud concepts, but important information must be independently verified. Current prices, free-tier limits, and security instructions should be checked against official documentation.

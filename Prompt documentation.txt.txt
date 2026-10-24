@@ -1,0 +1,22 @@
+# AI PROMPT DOCUMENTATION
+
+## Project Name
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+## Purpose
+To use AI tools to understand cloud computing concepts, prepare educational content, and improve project documentation.
+
+## Prompt 1: Cloud Computing Basics
+Explain cloud computing, IaaS, PaaS, SaaS, and cloud storage in simple English for college beginners. Give short definitions and examples.
+
+## Prompt 2: Cost Awareness
+Explain cloud free-tier limits, billing alerts, unused resources, and cost-saving methods. Use simple language and advise users to verify prices on official cloud provider websites.
+
+## Prompt 3: Quiz Creation
+Create 12 beginner-level questions about cloud computing, free-tier limits, cloud security, and cost management. Include correct answers.
+
+## AI Output Verification
+AI-generated information should be checked against official cloud provider documentation. Cloud prices, free-tier eligibility, and usage limits may change.
+
+## Safety Measures
+Never enter passwords, secret access keys, API keys, or personal financial information into AI tools.

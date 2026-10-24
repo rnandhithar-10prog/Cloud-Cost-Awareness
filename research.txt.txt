@@ -1,0 +1,32 @@
+CLOUD COMPUTING BASICS AND FREE-TIER COST AWARENESS
+
+1. Target Audience
+College students who are beginners in cloud computing.
+
+2. Cloud Computing
+Cloud computing provides servers, storage and software through the internet.
+
+3. Types of Cloud Services
+- IaaS: Provides virtual machines and servers.
+- PaaS: Provides a platform to develop applications.
+- SaaS: Provides ready-to-use software online.
+
+4. Free-Tier Safety
+- Check free-tier limits.
+- Set billing alerts.
+- Stop unused cloud resources.
+- Delete unnecessary resources.
+- Check official pricing before using services.
+
+5. Project Goal
+To help students understand cloud computing and avoid unexpected cloud bills using AI tools.
+
+Official source research and verification will be completed using AWS, Azure, Google Cloud and NIST documentation.
+
+Official Sources Identified:
+1. NIST – Definition of Cloud Computing
+2. AWS – Free Tier information
+3. Microsoft Azure – Free Services information
+4. Google Cloud – Free Program information
+
+Note: Exact free-tier limits and pricing conditions must be checked on the official provider pages before use.

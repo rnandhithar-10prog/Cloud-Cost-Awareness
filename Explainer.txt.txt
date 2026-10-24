@@ -1,0 +1,23 @@
+# CLOUD COMPUTING AND COST AWARENESS
+
+## What Is Cloud Computing?
+Cloud computing allows users to access computing services such as storage, servers, and databases through the internet without owning all the physical equipment.
+
+## What Is Free-Tier Usage?
+Cloud providers offer selected services with free usage limits or trial benefits. These benefits depend on the provider, service, account eligibility, and current terms.
+
+## Why Is Cost Awareness Important?
+Using cloud services beyond eligible limits may cause unexpected charges. Users should monitor resource consumption and understand pricing before starting services.
+
+## Five Cost-Saving Practices
+1. Read the current free-tier conditions.
+2. Set billing alerts and budget notifications.
+3. Stop unused virtual machines.
+4. Remove unnecessary resources after checking dependencies.
+5. Review usage and billing regularly.
+
+## Cloud Security
+Never share passwords or secret access keys with AI tools. Use official documentation to verify cloud pricing, limits, and security recommendations.
+
+## Conclusion
+Cloud computing is useful for learning and developing applications. Responsible resource usage, regular monitoring, and cost awareness help users avoid unnecessary spending.

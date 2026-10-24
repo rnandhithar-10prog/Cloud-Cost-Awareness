@@ -1,0 +1,37 @@
+CLOUD COMPUTING QUIZ
+
+1. What is cloud computing?
+Answer: Using computing services through the internet.
+
+2. What does IaaS stand for?
+Answer: Infrastructure as a Service.
+
+3. What does PaaS stand for?
+Answer: Platform as a Service.
+
+4. What does SaaS stand for?
+Answer: Software as a Service.
+
+5. Name one cloud provider.
+Answer: AWS.
+
+6. What is cloud storage?
+Answer: Storing data online.
+
+7. Why should billing alerts be enabled?
+Answer: To receive notifications about spending.
+
+8. What can happen if free-tier limits are exceeded?
+Answer: Additional charges may apply.
+
+9. Why should unused virtual machines be stopped?
+Answer: To reduce unnecessary costs.
+
+10. Should secret access keys be shared with AI tools?
+Answer: No.
+
+11. Where should cloud prices be verified?
+Answer: Official cloud provider websites.
+
+12. Can AI always provide correct cloud pricing?
+Answer: No. Prices must be verified using official sources.

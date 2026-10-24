@@ -1,0 +1,27 @@
+CLOUD COST AWARENESS - TESTING REPORT
+
+Project Name:
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+Testing Objective:
+To check whether the website and its features work correctly.
+
+Test Cases:
+1. Website opens in Chrome.
+2. Cloud provider details are displayed.
+3. Cost-saving tips are visible.
+4. Quiz options and Next Question button work.
+5. Calculator gives a result, if available.
+
+Conclusion:
+Testing helps identify errors and improve the website.
+
+TESTING RESULTS
+
+1. Website Loading — PASS
+2. Cloud Provider Details — PASS
+3. Quiz Functionality — PASS
+4. Cost-Saving Tips — PASS
+
+Conclusion:
+All four tested features passed the initial testing.

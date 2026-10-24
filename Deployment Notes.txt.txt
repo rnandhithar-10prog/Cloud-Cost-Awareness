@@ -1,0 +1,24 @@
+# DEPLOYMENT NOTES
+
+## Project Name
+Cloud Computing Basics and Free-Tier Cost Awareness
+
+## Deployment Method
+The website was run locally using a web browser.
+
+## Steps
+1. Create the project folder.
+2. Save the website code as index.html.
+3. Keep the supporting research and documentation files in the project folder.
+4. Double-click index.html to open it in Google Chrome.
+5. Test the cloud information, cost-saving tips, and quiz.
+6. Verify that the quiz options and Next Question button work correctly.
+
+## Testing
+The website was tested locally in Google Chrome. The quiz was updated to include 12 questions.
+
+## Limitations
+This is a local demonstration. It is not publicly hosted on a cloud platform.
+
+## Future Improvement
+The website can be deployed to a cloud hosting service after reviewing its current free-tier conditions and billing risks.

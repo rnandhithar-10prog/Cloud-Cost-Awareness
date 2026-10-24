@@ -1,0 +1,528 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Cost Awareness</title>
+<style>
+:root{--navy:#172554;--blue:#4263eb;--purple:#7950f2;--pink:#f06595;--teal:#12b886;--orange:#ff922b;--ink:#25304a;--muted:#64748b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#f3f0ff 0%,#e7f5ff 48%,#fff0f6 100%);color:var(--ink)}
+header{padding:42px 7% 36px;color:white;background:linear-gradient(120deg,#312e81 0%,#4263eb 48%,#9775fa 100%);position:relative;overflow:hidden}
+header:after{content:"☁";position:absolute;right:7%;top:-35px;font-size:180px;color:#ffffff22;transform:rotate(-12deg)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,42px);position:relative;z-index:1}
+header p{margin:0;color:#e0e7ff;font-size:16px;position:relative;z-index:1}
+.pill{display:inline-block;margin-top:18px;padding:7px 12px;border-radius:20px;background:#ffffff24;border:1px solid #ffffff55;font-size:12px;letter-spacing:.4px}
+nav{background:#fff;position:sticky;top:0;z-index:5;padding:15px 7%;box-shadow:0 5px 18px #312e8112;display:flex;flex-wrap:wrap;gap:20px}
+nav a{text-decoration:none;color:#4c1d95;font-weight:bold;font-size:14px}
+nav a:hover{color:#e64980}
+main{max-width:1120px;margin:30px auto;padding:0 18px}
+h2{margin-top:0;color:#4338ca}
+h3{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:#fff;padding:24px;border-radius:18px;box-shadow:0 9px 28px #3730a30f;border:1px solid #e9e7ff;margin-bottom:22px}
+.intro{border-top:5px solid var(--pink)}
+.mini{padding:18px;border-radius:13px;background:linear-gradient(135deg,#f3f0ff,#e7f5ff)}
+.mini:nth-child(2){background:linear-gradient(135deg,#e6fcf5,#d3f9d8)}
+.mini:nth-child(3){background:linear-gradient(135deg,#fff4e6,#ffe8cc)}
+.metric-card{color:white;border:0;min-height:140px}
+.metric-card:nth-child(1){background:linear-gradient(135deg,#4263eb,#748ffc)}
+.metric-card:nth-child(2){background:linear-gradient(135deg,#12b886,#63e6be);color:#123b35}
+.metric-card:nth-child(3){background:linear-gradient(135deg,#f06595,#cc5de8)}
+.metric-card p{margin:0;font-weight:bold}
+.metric{font-size:30px;font-weight:800;margin:15px 0 8px}
+.metric-card small{opacity:.9}
+label{display:block;margin:15px 0 7px;font-weight:bold;color:#3730a3}
+input{width:100%;padding:12px;border:2px solid #e0e7ff;border-radius:10px;font-size:15px;outline:none;background:#fcfcff}
+input:focus{border-color:#7950f2;box-shadow:0 0 0 3px #7950f21a}
+button{background:linear-gradient(100deg,#4263eb,#7950f2);color:#fff;border:0;padding:13px 20px;border-radius:10px;cursor:pointer;font-weight:bold;font-size:15px;margin-top:18px;box-shadow:0 5px 12px #7950f233}
+button:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.notice{padding:15px;background:#fff4e6;border-left:5px solid #ff922b;border-radius:8px;line-height:1.6}
+.result{font-size:16px;line-height:1.9;margin-top:16px;padding:15px;background:#f3f0ff;border-radius:10px}
+.bar{height:22px;background:#e9ecef;border-radius:20px;overflow:hidden;margin:14px 0}
+#barFill{height:100%;width:0;background:linear-gradient(90deg,#12b886,#4263eb,#7950f2);transition:width .35s}
+table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:10px}
+th,td{text-align:left;padding:13px;border-bottom:1px solid #e9e7ff}
+th{background:#ede9fe;color:#4c1d95}
+tr:nth-child(even) td{background:#faf9ff}
+li{margin:10px 0;line-height:1.5}
+.tips li::marker{color:#f06595}
+footer{text-align:center;padding:28px 16px;color:#fff;background:linear-gradient(100deg,#312e81,#4263eb)}
+footer small{color:#e0e7ff}
+@media(max-width:600px){header{padding:32px 6%}nav{gap:13px}nav a{font-size:13px}.card{padding:18px}.metric{font-size:26px}}
+</style>
+</head>
+<body>
+<header>
+<h1>☁ Cloud Cost Awareness</h1>
+<p>Understand cloud usage. Estimate demo costs. Make smarter choices.</p>
+<span class="pill">STUDENT PROJECT • INTERACTIVE DASHBOARD</span>
+</header>
+<nav>
+<a href="#learn">🌤 Learn</a>
+<a href="#dashboard">📊 Dashboard</a>
+<a href="#calculator">🧮 Calculator</a>
+<a href="#providers">☁ Providers</a>
+<a href="#tips">💡 Tips</a>
+</nav>
+<main>
+<section id="learn" class="card intro">
+<h2>🌈 What is Cloud Computing?</h2>
+<p>Cloud computing lets people use storage, servers and software through the internet instead of managing all the physical equipment themselves.</p>
+<div class="grid">
+<div class="mini"><h3>🗂 Storage</h3><p>Keep files and data online.</p></div>
+<div class="mini"><h3>⚙️ Computing</h3><p>Run apps and programs using online resources.</p></div>
+<div class="mini"><h3>💳 Usage & Cost</h3><p>Some services charge according to resources used.</p></div>
+</div>
+</section>
+<section id="dashboard">
+<h2>📊 Usage Dashboard</h2>
+<div class="grid">
+<div class="card metric-card"><p>🗂 Storage Used</p><div class="metric" id="storageMetric">7 GB</div><small>Example usage</small></div>
+<div class="card metric-card"><p>🎯 Free-Tier Limit</p><div class="metric" id="limitMetric">5 GB</div><small>Example limit</small></div>
+<div class="card metric-card"><p>💰 Estimated Extra Cost</p><div class="metric" id="costMetric">₹20.00</div><small>Demo estimate only</small></div>
+</div>
+<div class="card">
+<h3>📈 Storage Usage Indicator</h3>
+<div class="bar"><div id="barFill"></div></div>
+<p id="chartText">Example usage is compared with the example free-tier limit.</p>
+</div>
+</section>
+<section id="calculator" class="card">
+<h2>🧮 Free-Tier Cost Calculator</h2>
+<p>Enter your sample values below and select <b>Check Usage</b>.</p>
+<label for="usage">Storage used (GB)</label><input id="usage" type="number" min="0" step="0.1" value="7">
+<label for="limit">Example free-tier limit (GB)</label><input id="limit" type="number" min="0" step="0.1" value="5">
+<label for="price">Demo price per extra GB (₹)</label><input id="price" type="number" min="0" step="0.01" value="10">
+<button onclick="calculate()">✨ Check Usage</button>
+<div class="result" id="result" aria-live="polite">Example: 7 GB usage − 5 GB limit = 2 GB extra. Demo cost = ₹20.00.</div>
+</section>
+<section id="providers" class="card">
+<h2>☁ Cloud Provider Awareness</h2>
+<table>
+<tr><th>Provider</th><th>Example service areas</th></tr>
+<tr><td>🟠 Amazon Web Services (AWS)</td><td>Cloud storage and computing</td></tr>
+<tr><td>🔵 Microsoft Azure</td><td>Cloud applications and storage</td></tr>
+<tr><td>🌈 Google Cloud</td><td>Data, storage and computing</td></tr>
+</table>
+<p class="notice">⚠️ Free-tier limits and prices vary by provider and service. Check the official provider website for current details.</p>
+</section>
+<section id="tips" class="card">
+<h2>💡 Smart Cost-Saving Tips</h2>
+<ul class="tips">
+<li>🔎 Monitor resource usage regularly.</li>
+<li>🔔 Set billing alerts when your provider supports them.</li>
+<li>🧹 Delete resources that you no longer use.</li>
+<li>📅 Check free-tier limits and expiry conditions.</li>
+<li>📘 Review official pricing before deploying a project.</li>
+</ul>
+</section>
+<section class="card">
+<h2>🎯 Project Objective</h2>
+<p>This educational website demonstrates how to compare sample storage usage with an example free-tier limit and estimate a possible extra cost.</p>
+<p class="notice"><b>Project limitation:</b> This is a demo. It does not connect to cloud accounts, show live prices or calculate an actual provider bill.</p>
+</section>
+</main>
+<footer>
+<b>Cloud Cost Awareness Project</b><br>
+<small>Educational demonstration • HTML • CSS • JavaScript</small>
+</footer>
+<script>
+function calculate(){
+ const uf=document.getElementById('usage'), lf=document.getElementById('limit'), pf=document.getElementById('price');
+ const usage=Number(uf.value), limit=Number(lf.value), price=Number(pf.value), result=document.getElementById('result');
+ if(uf.value===''||lf.value===''||pf.value===''||!Number.isFinite(usage)||!Number.isFinite(limit)||!Number.isFinite(price)||usage<0||limit<0||price<0){
+  result.textContent='⚠️ Please enter valid non-negative numbers in all fields.';return;
+ }
+ const extra=Math.max(0,usage-limit), cost=extra*price, percent=limit>0?Math.min(100,usage/limit*100):(usage>0?100:0);
+ document.getElementById('storageMetric').textContent=usage+' GB';
+ document.getElementById('limitMetric').textContent=limit+' GB';
+ document.getElementById('costMetric').textContent='₹'+cost.toFixed(2);
+ document.getElementById('barFill').style.width=percent+'%';
+ document.getElementById('chartText').textContent=limit===0?'The example free-tier limit is 0 GB.':'Usage is '+(usage/limit*100).toFixed(1)+'% of the example free-tier limit.';
+ result.innerHTML=(extra>0?'⚠️ <b>Usage is above the example limit.</b>':'✅ <b>Usage is within the example limit.</b>')+'<br>Extra usage: <b>'+extra.toFixed(2)+' GB</b><br>Estimated demo cost: <b>₹'+cost.toFixed(2)+'</b>';
+}
+calculate();
+</script>
+<!-- Cloud Provider Comparison -->
+<section id="comparison" style="padding:25px;margin:20px;background:#fff;border-radius:15px;">
+<h2 style="color:#174ea6;">☁️ Cloud Provider Comparison</h2>
+<p>Compare popular cloud platforms before using their free-tier services.</p>
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;text-align:left;">
+<tr style="background:#174ea6;color:white;">
+<th style="padding:12px;">Feature</th>
+<th style="padding:12px;">AWS</th>
+<th style="padding:12px;">Azure</th>
+<th style="padding:12px;">Google Cloud</th>
+</tr>
+<tr>
+<td style="padding:12px;border:1px solid #ddd;">Compute</td>
+<td style="padding:12px;border:1px solid #ddd;">EC2</td>
+<td style="padding:12px;border:1px solid #ddd;">Virtual Machines</td>
+<td style="padding:12px;border:1px solid #ddd;">Compute Engine</td>
+</tr>
+<tr>
+<td style="padding:12px;border:1px solid #ddd;">Storage</td>
+<td style="padding:12px;border:1px solid #ddd;">S3</td>
+<td style="padding:12px;border:1px solid #ddd;">Blob Storage</td>
+<td style="padding:12px;border:1px solid #ddd;">Cloud Storage</td>
+</tr>
+<tr>
+<td style="padding:12px;border:1px solid #ddd;">Database</td>
+<td style="padding:12px;border:1px solid #ddd;">RDS</td>
+<td style="padding:12px;border:1px solid #ddd;">Azure SQL</td>
+<td style="padding:12px;border:1px solid #ddd;">Cloud SQL</td>
+</tr>
+<tr>
+<td style="padding:12px;border:1px solid #ddd;">Cost Safety</td>
+<td style="padding:12px;border:1px solid #ddd;">Set budget alerts</td>
+<td style="padding:12px;border:1px solid #ddd;">Set budget alerts</td>
+<td style="padding:12px;border:1px solid #ddd;">Set budget alerts</td>
+</tr>
+</table>
+</div>
+<p><b>Important:</b> Free-tier limits and charges vary by service, region and account. Always verify current pricing on official websites.</p>
+</section>
+<!-- Free-Tier Safety Checklist -->
+<section id="safety" style="padding:25px;margin:20px;background:#eaf7ff;border-radius:15px;">
+<h2 style="color:#174ea6;">🛡️ Free-Tier Safety Checklist</h2>
+<p>Tick each item before using cloud services.</p>
+<label><input type="checkbox"> Check free-tier usage limits.</label><br><br>
+<label><input type="checkbox"> Set a budget and billing alerts.</label><br><br>
+<label><input type="checkbox"> Stop unused virtual machines.</label><br><br>
+<label><input type="checkbox"> Delete unnecessary resources.</label><br><br>
+<label><input type="checkbox"> Never share secret keys or passwords.</label><br><br>
+<label><input type="checkbox"> Verify prices on official websites.</label>
+</section>
+<!-- AI Cloud Cost Tips -->
+<section id="ai-tips" style="padding:25px;margin:20px;background:linear-gradient(135deg,#e0f2fe,#f3e8ff);border-radius:15px;">
+<h2 style="color:#5b21b6;">🤖 AI-Powered Cloud Cost Tips</h2>
+<p>Use these beginner-friendly tips to avoid unexpected cloud bills.</p>
+<div style="padding:12px;background:white;border-radius:10px;margin:10px 0;">
+<b>💰 Tip 1: Control Your Budget</b>
+<p>Ask an AI tool to explain billing alerts and budget limits in simple words.</p>
+</div>
+<div style="padding:12px;background:white;border-radius:10px;margin:10px 0;">
+<b>🛑 Tip 2: Stop Unused Resources</b>
+<p>Ask AI to create a checklist for finding unused virtual machines and storage.</p>
+</div>
+<div style="padding:12px;background:white;border-radius:10px;margin:10px 0;">
+<b>🔍 Tip 3: Verify Before You Trust</b>
+<p>Always check AI suggestions against official cloud documentation and pricing.</p>
+</div>
+<p><b>Reminder:</b> AI can make mistakes. Never share passwords, secret keys or private billing information with AI tools.</p>
+</section>
+<!-- Free-Tier Disclaimer -->
+<section id="disclaimer" style="padding:25px;margin:20px;background:#fff4e5;border-left:6px solid #f59e0b;border-radius:12px;">
+<h2 style="color:#92400e;">⚠️ Free-Tier Billing Disclaimer</h2>
+<p>Free-tier services have usage limits and eligibility conditions. Exceeding these limits may result in charges.</p>
+<ul>
+<li>Check the current pricing before creating resources.</li>
+<li>Set budgets and billing notifications where available.</li>
+<li>Remember that alerts may not stop resources automatically.</li>
+<li>Remove unused resources to reduce unnecessary costs.</li>
+</ul>
+<p><b>Always verify:</b> AWS, Microsoft Azure and Google Cloud official pricing pages.</p>
+</section>
+<!-- Interactive Cloud Quiz -->
+<section id="quiz" style="padding:25px;margin:20px;background:#f3e8ff;border-radius:15px;">
+<h2 style="color:#6b21a8;">🧠 Cloud Knowledge Quiz</h2>
+<p>Test your cloud computing knowledge!</p>
+
+<div id="question" style="font-weight:bold;margin:15px 0;"></div>
+<div id="options"></div>
+<p id="feedback"></p>
+<button onclick="nextQuestion()" id="nextBtn"
+style="padding:10px 20px;background:#6b21a8;color:white;border:0;border-radius:8px;">
+Next Question
+</button>
+<p id="score"></p>
+</section>
+
+<script>
+const quiz = [
+{q:"What is cloud computing?",
+o:["Using services through internet","Playing games only","Typing offline"],
+a:0},
+{q:"What does IaaS mean?",
+o:["Internet as a System","Infrastructure as a Service","Input as a Service"],
+a:1},
+{q:"Which is a cloud provider?",
+o:["AWS","MS Paint","Notepad"],
+a:0},
+{q:"Why set billing alerts?",
+o:["To change passwords","To monitor spending","To increase storage"],
+a:1},
+{q:"Should you share secret keys with AI?",
+o:["Yes","Always","No"],
+a:2}
+];
+
+let current = 0;
+let points = 0;
+let answered = false;
+
+function showQuestion() {
+answered = false;
+document.getElementById("feedback").textContent = "";
+document.getElementById("score").textContent = "";
+document.getElementById("question").textContent =
+(current + 1) + ". " + quiz[current].q;
+document.getElementById("options").innerHTML = "";
+document.getElementById("options").style.display = "block";
+
+quiz[current].o.forEach((option, i) => {
+let btn = document.createElement("button");
+btn.textContent = option;
+btn.style.cssText =
+"display:block;margin:8px 0;padding:10px;width:100%;text-align:left;cursor:pointer;border-radius:8px;border:1px solid #aaa;background:white;";
+btn.onclick = function() {
+if (answered) return;
+answered = true;
+if (i === quiz[current].a) {
+points++;
+document.getElementById("feedback").textContent = "Correct! 🎉";
+} else {
+document.getElementById("feedback").textContent =
+"Incorrect. Correct answer: " + quiz[current].o[quiz[current].a];
+}
+};
+document.getElementById("options").appendChild(btn);
+});
+console.log("Options created:", document.getElementById("options").children.length);
+document.getElementById("nextBtn").textContent =
+current === quiz.length - 1 ? "Show Result" : "Next Question";
+}
+
+function nextQuestion() {
+if (!answered) {
+document.getElementById("feedback").textContent =
+"Please select an answer first.";
+return;
+}
+if (current < quiz.length - 1) {
+current++;
+showQuestion();
+} else {
+document.getElementById("question").textContent = "Quiz Completed!";
+document.getElementById("options").innerHTML = "";
+document.getElementById("feedback").textContent = "";
+document.getElementById("score").textContent =
+"Your Score: " + points + " / " + quiz.length;
+document.getElementById("nextBtn").style.display = "none";
+}
+}
+
+alert("Quiz script is running!");
+showQuestion();
+</script>
+
+<div style="display:block !important; visibility:visible !important; padding:15px;">
+  <button style="display:block; padding:12px; margin:8px; background:white; color:black; border:1px solid black;">
+   
+<!-- Quiz Options Fix -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const optionBox = document.getElementById("options");
+
+  if (!optionBox) return;
+
+  function displayOptions() {
+    const question = document.getElementById("question");
+    if (!question) return;
+
+    const text = question.textContent;
+    let answers = [];
+
+    if (text.includes("What is cloud computing?")) {
+      answers = [
+        "Using services through internet",
+        "Playing games only",
+        "Typing offline"
+      ];
+    } else if (text.includes("What does IaaS mean?")) {
+      answers = [
+        "Internet as a System",
+        "Infrastructure as a Service",
+        "Input as a Service"
+      ];
+    } else if (text.includes("Which is a cloud provider?")) {
+      answers = ["AWS", "MS Paint", "Notepad"];
+    } else if (text.includes("Why set billing alerts?")) {
+      answers = [
+        "To change passwords",
+        "To monitor spending",
+        "To increase storage"
+      ];
+    } else if (text.includes("Should you share secret keys with AI?")) {
+      answers = ["Yes", "Always", "No"];
+    }
+
+    if (answers.length > 0) {
+      optionBox.innerHTML = "";
+      optionBox.style.cssText =
+        "display:block !important; visibility:visible !important; opacity:1 !important;";
+
+      answers.forEach(function (answer) {
+        const button = document.createElement("button");
+        button.textContent = answer;
+button.onclick = function () {
+  const question = document.getElementById("question").textContent;
+  let correct = "";
+
+  if (question.includes("What is cloud computing?"))
+    correct = "Using services through internet";
+  else if (question.includes("What does IaaS mean?"))
+    correct = "Infrastructure as a Service";
+  else if (question.includes("Which is a cloud provider?"))
+    correct = "AWS";
+  else if (question.includes("Why set billing alerts?"))
+    correct = "To monitor spending";
+  else if (question.includes("Should you share secret keys with AI?"))
+    correct = "No";
+
+  document.getElementById("feedback").textContent =
+    answer === correct ? "Correct! 🎉" : "Incorrect. Correct answer: " + correct;
+};
+        button.style.cssText =
+          "display:block !important; visibility:visible !important; opacity:1 !important; width:100%; padding:12px; margin:8px 0; background:white; color:black; border:1px solid #aaa; border-radius:8px; text-align:left;";
+        optionBox.appendChild(button);
+      });
+    }
+  }
+
+  displayOptions();
+  setInterval(displayOptions, 500);
+});
+</script>
+
+<script>
+(function () {
+  const btn = document.getElementById("nextBtn");
+  if (!btn) return;
+
+  btn.onclick = function () {
+    const q = document.getElementById("question");
+    const box = document.getElementById("options");
+    const feedback = document.getElementById("feedback");
+
+    if (!q || !box) return;
+
+    
+const questions = [
+  {
+    q: "What is cloud computing?",
+    a: ["Using computing services through the internet", "Playing games only", "Typing offline", "Watching TV"],
+    correct: 0
+  },
+  {
+    q: "What does IaaS stand for?",
+    a: ["Internet as a System", "Infrastructure as a Service", "Input as a Service", "Information as Software"],
+    correct: 1
+  },
+  {
+    q: "What does PaaS stand for?",
+    a: ["Platform as a Service", "Program as a System", "Password as a Service", "Personal Application Software"],
+    correct: 0
+  },
+  {
+    q: "What does SaaS stand for?",
+    a: ["Storage as a System", "Software as a Service", "Security as a Server", "System as Software"],
+    correct: 1
+  },
+  {
+    q: "Which is a cloud provider?",
+    a: ["MS Paint", "Notepad", "AWS", "Calculator"],
+    correct: 2
+  },
+  {
+    q: "What is cloud storage?",
+    a: ["Storing data online", "Printing documents", "Deleting files", "Playing music offline"],
+    correct: 0
+  },
+  {
+    q: "Why should billing alerts be enabled?",
+    a: ["To change passwords", "To monitor spending", "To increase storage automatically", "To make internet faster"],
+    correct: 1
+  },
+  {
+    q: "What may happen if free-tier limits are exceeded?",
+    a: ["The internet stops forever", "All files disappear", "Additional charges may apply", "The laptop shuts down"],
+    correct: 2
+  },
+  {
+    q: "Why should unused virtual machines be stopped?",
+    a: ["To reduce unnecessary costs", "To increase screen brightness", "To improve typing", "To create passwords"],
+    correct: 0
+  },
+  {
+    q: "Should you share secret access keys with AI tools?",
+    a: ["Yes, always", "Only in public chats", "No, keep them secret", "Post them online"],
+    correct: 2
+  },
+  {
+    q: "Where should cloud prices be verified?",
+    a: ["Random social media posts", "Official cloud provider websites", "Unverified messages", "Gaming websites"],
+    correct: 1
+  },
+  {
+    q: "Can AI always provide correct cloud pricing?",
+    a: ["Yes, always", "No, verify using official sources", "AI never makes mistakes", "Pricing never changes"],
+    correct: 1
+  }
+];
+
+
+    let current = questions.findIndex(item =>
+      q.textContent.includes(item.q)
+    );
+
+    if (current < 0) return;
+
+    if (current < questions.length - 1) {
+      const next = questions[current + 1];
+      q.textContent = (current + 2) + ". " + next.q;
+      box.innerHTML = "";
+
+      next.a.forEach(answer => {
+        const option = document.createElement("button");
+        option.textContent = answer;
+        option.style.cssText =
+          "display:block;width:100%;padding:12px;margin:8px 0;background:white;color:black;border:1px solid #aaa;border-radius:8px;text-align:left;cursor:pointer;";
+
+        option.onclick = function () {
+          const correctAnswers = [
+            "Using services through internet",
+            "Infrastructure as a Service",
+            "AWS",
+            "To monitor spending",
+            "No"
+          ];
+          feedback.textContent =
+            answer === correctAnswers[current + 1]
+              ? "Correct! 🎉"
+              : "Incorrect. Correct answer: " + correctAnswers[current + 1];
+        };
+
+        box.appendChild(option);
+      });
+
+      feedback.textContent = "";
+    } else {
+      q.textContent = "Quiz Completed! 🎉";
+      box.innerHTML = "";
+      feedback.textContent = "You have completed all 12 questions.";
+      btn.style.display = "none";
+    }
+  };
+})();
+</script>
+</body>
+</html>'''
+path = Path("/mnt/data/CloudCostAwareness_Colorful.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created colorful website file: {path} ({path.stat().st_size} bytes)")

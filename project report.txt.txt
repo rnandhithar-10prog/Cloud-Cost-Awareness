@@ -1,0 +1,31 @@
+CLOUD COMPUTING BASICS AND FREE-TIER COST AWARENESS
+
+1. INTRODUCTION
+Cloud computing provides computing resources such as servers, storage, and databases through the internet. This project helps users understand cloud computing and manage cloud costs.
+
+2. OBJECTIVES
+- To explain the basics of cloud computing.
+- To introduce popular cloud service providers.
+- To create awareness about free-tier usage limits.
+- To provide cost-saving tips.
+- To test basic cloud knowledge through a quiz.
+
+3. CLOUD SERVICE PROVIDERS
+The major cloud providers include Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+
+4. PROJECT MODULES
+- Cloud Computing Basics
+- Cloud Provider Information
+- Free-Tier Cost Awareness
+- Cost-Saving Tips
+- Cloud Knowledge Quiz
+
+5. TESTING
+The website was opened in Chrome and the following features were tested:
+- Website loading — PASS
+- Cloud provider details — PASS
+- Quiz functionality — PASS
+- Cost-saving tips — PASS
+
+6. CONCLUSION
+This project provides basic knowledge about cloud computing and promotes awareness of free-tier limits and cost-saving practices. It helps users understand the importance of monitoring cloud resource usage.
